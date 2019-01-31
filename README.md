@@ -7,3 +7,4 @@
 5. errors: 错误定义
 6. commands: 命令其他参数，如虚拟数据，初始化数据库等。
 7. `__init__`: 主程序, 启动flask
+8. 要用bootstrap-flask，别用flask-bootstrap!!

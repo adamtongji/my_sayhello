@@ -1,0 +1,3 @@
+FLASK_APP=myapp
+FLASK_ENV=development
+BOOTSTRAP_SERVE_LOCAL=True

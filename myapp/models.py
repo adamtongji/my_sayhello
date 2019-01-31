@@ -29,6 +29,13 @@ class DBmanager(object):
     def delete_one(self, info):
         self.post_info.delete_one(info)
 
+    def delete_many(self, info):
+        self.post_info.delete_many(info)
+
+    def drop(self):
+        self.post_info.drop()
+        return "Drop current databse!"
+
     def _close(self):
         self.connection.close()
 

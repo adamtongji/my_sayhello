@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}500 Error{% endblock %}
+
+{% block content %} <p class="text-center">Internal server error! </p>{%endblock content %}
+
+{% block footer %}
+    <a href="{{ url_for('index') }}">&larr; Go Back</a>
+{% endblock %}
+

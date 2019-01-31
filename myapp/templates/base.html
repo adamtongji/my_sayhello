@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My_say hello!{% endblock title %}</title>
+    <link rel="icon"  href="{{ url_for('static', filename='pics/ptm_logo.jpg') }}">
+    {{ bootstrap.load_css() }}
+
+    </head>
+<body>
+<div class="container">
+    <header>
+        <h1><a class="text-success"><strong>MY say hello!</strong></a> </h1>
+        <small class="text-muted sub-title"> to this website</small>
+    </header>
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info">
+            <button class="close" data-dismiss="alert"></button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% block content %} {% endblock content %}
+     <footer class="text-center">
+         {% block footer %}
+        <small>&copy; 2019 ptm-biolab<a title="fork me on Github" href="https://github.com/adamtongji/my_sayhello"></a>
+            <a href="http://helloflask.com" title="A HelloFlask project">HelloFlask</a>
+        </small>
+         <p><a id="buttom" href="#" title="Go Top">Back to top &uarr;</a></p>
+         {% endblock footer %}
+     </footer>
+</div>
+{{ bootstrap.load_js() }}
+{{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+
+{% block content %}
+    <div class="hello-form">
+        {{ render_form(form, action=request.full_path) }}
+    </div>
+    <h5> {{ messages|length }} Messages
+        <small><a href="#buttom" title="Go Buttom">Go to buttom &darr;</a> </small>
+    </h5>
+    <div class="list-group">
+        {% for message in messages %}
+            <a class="list-group-item list-group-item-action flex-column">
+                <h5 class="mb1 text-success">{{ message["name"] }} </h5>
+                <small class="text-muted">#loop.revindex</small>
+                <small data-toggle="tooltip" data-placement="top"
+                           data-timestamp="{{ message['timestamp'].strftime('%Y-%m-%dT%H:%M:%SZ') }}"
+                       data-delay="500">
+                    {{ moment(message["timestamp"]).fromNow(refresh=True) }}
+                </small>
+                <p>
+                    {{ message["body"] }}
+                </p>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
